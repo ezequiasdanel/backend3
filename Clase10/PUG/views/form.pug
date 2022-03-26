@@ -1,0 +1,16 @@
+html 
+    head 
+        title='Productos'
+    body 
+        form(action="/productos" method="post") 
+            div 
+                label(for="nombre")="Nombre De Producto" 
+                input(type="text " id="nombre" name="nombre" placeholder="Insertar nombre de producto") 
+            div 
+                label(for="precio")="Precio De Producto" 
+                input(type="text " id="precio" name="precio" placeholder="Precio de producto") 
+            div 
+                label(for="imagen")="imagen de producto" 
+                input(type="text " id="imagen" name="imagen" placeholder="Insertar Url")
+            button(type="submit" class="btn btn-primary")="Cargar Productos"
+        a(href="/productos")='Ir A Productos' 
