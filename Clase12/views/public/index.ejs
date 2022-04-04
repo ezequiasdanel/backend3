@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" method="post">
+        <div>
+            <label for="nombre">Nombre De Producto</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Insertar Nombre de Producto">
+        </div>
+        <div>
+            <label for="precio">Precio De Producto</label>
+            <input type="text" id="precio" name="precio" placeholder="Insertar Precio de Producto">
+        </div>
+        <div>
+            <label for="imagen">Imagen De Producto</label>
+            <input type="text" id="imagen" name="imagen"placeholder="Insertar Url">
+        </div>
+        <button type="submit" class="btn btn-primary">Cargar Producto</button>
+    </form>
+    <br>
+
+    <!-- <%- include('partials/tabla.ejs');%> -->
+    <table>
+        <thead>
+            <tr>    
+                <th scope="col">Nombre</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (datos.length === 0) { %>
+                <tr>
+                    <td colspan="3"> No hay productos cargados</td>
+                </tr>
+            <%}else { %>
+                <% for (let i = 0; i < datos.length; i++){ %>
+                    <tr>
+                        <td><%= datos[i].nombre %></td>
+                        <td><%= datos[i].precio %></td>
+                        <td> <img src = <%= datos[i].imagen %>></img></td>    
+                    </tr>
+                <% }} %>
+        </tbody>
+    </table>
+
+    <form onsubmit="addMessage">
+        <div>
+            <input type="text" id="email" placeholder="Example@gmail.com">
+            <input type="text" id="texto" placeholder="ingresa un mensaje...">
+            <input type="submit" value="enviar">
+        </div>
+    </form>
+    <br>
+    <div id="messages">
+
+    </div>
+</body>
+</html>
