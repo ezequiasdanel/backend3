@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/" method="post">
+    <form onsubmit="addProduct">
         <div>
             <label for="nombre">Nombre De Producto</label>
             <input type="text" id="nombre" name="nombre" placeholder="Insertar Nombre de Producto">
@@ -42,12 +42,8 @@
                 </tr>
             <%}else { %>
                 <% for (let i = 0; i < datos.length; i++){ %>
-                    <tr>
-                        <td><%= datos[i].nombre %></td>
-                        <td><%= datos[i].precio %></td>
-                        <td> <img src = <%= datos[i].imagen %>></img></td>    
-                    </tr>
-                <% }} %>
+                    <div id="productos"></div>
+                <% }}   %>
         </tbody>
     </table>
 

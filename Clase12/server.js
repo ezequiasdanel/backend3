@@ -19,18 +19,26 @@ const datos = [];
 app.get('/', (req, res)=>{
     res.render('public/index', {datos, messages})
 })
-app.post('/', (req, res)=>{
-    datos.push(req.body)
-    res.render('public/index',{datos, messages})
-})
+// app.post('/', (req, res)=>{
+//     datos.push(req.body)
+//     res.render('public/index',{datos, messages})
+// })
 
 httpServer.listen(3000, ()=> console.log('server on'))
 
-io.on('connection', function(socket){
-    console.log('un cliente se ha conectado')
-    socket.emit('messages',messages)
-    socket.on('new-message', data =>{
-        messages.push(data);
-        io.sockets.emit('messages',messages)
-    })
-})
+// io.on('connection', function(socket){
+//     console.log('un cliente se ha conectado')
+//     socket.emit('messages',messages)
+//     socket.on('new-message', data =>{
+//         messages.push(data);
+//         io.sockets.emit('messages',messages)
+//     })
+// })
+io.on('connection', function(socket) { 
+    console.log('Un cliente se ha conectado');
+     socket.on('new-dato', (data) => { datos.push(data); io.sockets.emit('datos', {datos}); 
+    });
+
+    socket.on('new-message', (data) => { messages.push(data); io.sockets.emit('messages', {messages}); });
+
+});
