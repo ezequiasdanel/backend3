@@ -1,0 +1,10 @@
+<ul>
+    <% if(messages.lenght==0) { %>
+        <div>No hay mensajes</div>
+        <%}else{%>
+            <% for(let i=0; i <messages.length; i++) { %>
+                <div>
+                    <%=messages[i].email%> : <%=messages[i].texto%>
+                </div>
+                <% }} %>
+</ul>
