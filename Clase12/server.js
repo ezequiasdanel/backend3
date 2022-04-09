@@ -24,8 +24,9 @@ app.get('/', (req, res)=>{
 
 io.on('connection', function(socket) { 
     console.log('Un cliente se ha conectado');
+    console.log(datos,messages)
      socket.on('new-dato', (data) => { 
-         datos.push(data); io.sockets.emit('datos', {datos}); 
+         datos.push(data); io.sockets.emit('datos',{datos}); 
     });
 
     socket.on('new-message', (data) => {
