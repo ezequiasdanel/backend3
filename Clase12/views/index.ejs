@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form onsubmit="addProduct">
+    <form onsubmit="addProduct()">
         <div>
             <label for="nombre">Nombre De Producto</label>
             <input type="text" id="nombre" name="nombre" placeholder="Insertar Nombre de Producto">
@@ -24,23 +24,21 @@
         </div>
         <button type="submit" class="btn btn-primary">Cargar Producto</button>
     </form>
-    <br>
+    <hr>
 
     <div><%- include('tabla');%></div>
 
-
-    <form onsubmit="addMessage">
+    <hr>
+    <form onsubmit="addMessage()">
         <div>
             <input type="text" id="email" placeholder="Example@gmail.com">
             <input type="text" id="texto" placeholder="ingresa un mensaje...">
             <input type="submit" value="enviar">
         </div>
     </form>
-    <br>
+    <hr>
    
-    <div>
-        <%- include('chat'); %>
-    </div>
-    
+    <div><%- include('chat');%></div>
+    <hr>
 </body>
 </html>

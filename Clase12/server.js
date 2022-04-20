@@ -12,9 +12,7 @@ app.set('views', __dirname + '/views')
 
 httpServer.listen(3000, ()=> console.log('server on'))
 
-const messages = [
-    {email:'pepito@hotmail.com', texto: 'Hola mundo!'}   
-];
+const messages = [];
 
 const datos = [];
 
@@ -26,12 +24,13 @@ io.on('connection', function(socket) {
     console.log('Un cliente se ha conectado');
     console.log(datos,messages)
      socket.on('new-dato', (data) => { 
-         datos.push(data); io.sockets.emit('datos',{datos}); 
+         datos.push(data); 
+         io.sockets.emit('productos',{datos}); 
     });
 
     socket.on('new-message', (data) => {
-         messages.push(data); io.sockets.emit('messages', {messages}); });
-
+         messages.push(data);
+         io.sockets.emit('messages', {messages}); });
 });
 
 app.use(express.static(path.join(__dirname, 'public')))
