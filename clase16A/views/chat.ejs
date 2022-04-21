@@ -1,0 +1,17 @@
+<table>
+    
+<% if (messages.lenght == 0) { %>
+    <p>No hay mensajes</p>
+
+
+    <% }else{ %>
+    <tr>
+        <% for (let i = 0; i < messages.length; i++) { %>
+                <tr>
+                   <td> <%= messages[i].email%> :</td>
+                   <td><%= messages[i].fecha%></td>
+                   <td> <%= messages[i].text%> </td>
+                </tr>
+                <% }} %>
+</tr>
+</table>

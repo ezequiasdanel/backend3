@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="addProduct()">
+        <div>
+            <label for="nombre">Nombre De Producto</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Insertar Nombre de Producto">
+        </div>
+        <div>
+            <label for="precio">Precio De Producto</label>
+            <input type="text" id="precio" name="precio" placeholder="Insertar Precio de Producto">
+        </div>
+        <div>
+            <label for="imagen">Imagen De Producto</label>
+            <input type="text" id="imagen" name="imagen"placeholder="Insertar Url">
+        </div>
+        <button type="submit" class="btn btn-primary">Cargar Producto</button>
+    </form>
+    <hr>
+
+    <div><%- include('tabla');%></div>
+
+    <hr>
+    <form onsubmit="addMessage()">
+        <div>
+            <input type="text" id="email" placeholder="Example@gmail.com">
+            <input type="text" id="texto" placeholder="ingresa un mensaje...">
+            <input type="submit" value="enviar">
+        </div>
+    </form>
+    <hr>
+   
+    <div><%- include('chat');%></div>
+    <hr>
+</body>
+</html>
