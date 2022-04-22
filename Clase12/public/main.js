@@ -4,13 +4,11 @@ socket.on('messages', data =>{
 })
 socket.on('messages', function (messages) {render('messages',messages);})
 socket.on('productos', function (productos) {render('productos',productos);})
-const moment = require('moment');
-const momentNow = moment().format('MMMM Do YYYY, h:mm:ss a')
 function addMessage(e){
     const mensaje = {
         email: document.getElementById('email').value,
         text: document.getElementById('texto').value,
-        fecha: momentNow
+        fecha: Date().toString(),
         
     }
     socket.emit('new-message', mensaje)
