@@ -10,7 +10,7 @@ const createTable = (async()=>{
             table.increments('id');
             table.string('nombre');
             table.string('precio');
-            table.image('imagen');
+            table.string('imagen');
         });
     console.log('tabla de productos creados')
     }catch(e){
@@ -19,4 +19,6 @@ const createTable = (async()=>{
         knex.destroy()
     }
 });
-module.exports = createTable;
+
+createTable()
+

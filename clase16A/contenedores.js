@@ -1,21 +1,17 @@
-const {mariaDB} = require('./options/mariaDB')
-const {sqLite} = require('./options/sqliteDB')
+const mariaDB = require('./options/mariaDB')
+const sqLite = require('./options/sqliteDB')
 const knex = require('knex')
-const {addMessage} = require('./insert_mensajes')
-const {addProduct} = require('./insert_productos')
-
-contenedorMensaje = new ContenedorMensajes(sqLite)
-contenedorProductos = new ContenedorProductos(mariaDB)
+const addMessage = require('./insert_mensajes')
+const addProduct = require('./insert_productos')
 
 class Contenedor {
     constructor(config) {
-        this.config = config
-        this.knex = knex(config)
+        this.knex = knex(config.options)
     }
 }
 class ContenedorMensajes extends Contenedor {
     constructor(config) {
-        this.super(config);
+        super(config);
     }
     guardarMensajes(mensajes) {
         addMessage(mensajes)
@@ -23,7 +19,7 @@ class ContenedorMensajes extends Contenedor {
 }
 class ContenedorProductos extends Contenedor {
     constructor(config) {
-        this.super(config);
+        super(config);
     }
     guardarProductos(productos) {
         addProduct(productos)
@@ -31,5 +27,8 @@ class ContenedorProductos extends Contenedor {
 }
 
 
-module.exports = ContenedorMensajes,
-                 ContenedorProductos;
+const contenedorMensaje = new ContenedorMensajes(sqLite)
+const contenedorProducto = new ContenedorProductos(mariaDB)
+
+
+module.exports = {contenedorMensaje, contenedorProducto}

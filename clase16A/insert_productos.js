@@ -6,7 +6,7 @@ async function addProducto(producto){
         const prod = {
             nombre: producto.nombre,
             precio: producto.precio,
-            imagen: product.imagen,
+            imagen: producto.imagen,
         }
         
         const resp = await knex('productos').insert(prod);

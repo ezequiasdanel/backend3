@@ -4,8 +4,8 @@ const knex = require('knex')(options);
 async function addMensaje(message){
     try {
         const msj = {
-            email: message.email,
-            mensaje: message.mensaje,
+            nombre: message.email,
+            mensaje: message.text,
             fecha: message.fecha,
         }
         const resp = await knex('chat').insert(msj);

@@ -1,5 +1,6 @@
 const {options} = require('./options/sqliteDB')
 const knex = require('knex')(options);
+console.log(options)
 
 const createTable = (async()=>{
     try {
@@ -20,4 +21,4 @@ const createTable = (async()=>{
     }
 });
 
-module.exports = createTable;
+createTable()
